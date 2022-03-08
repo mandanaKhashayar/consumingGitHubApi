@@ -5,7 +5,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +21,7 @@ public class Owner {
     @JsonProperty("id")
     private Long ownerId;
 
-    @OneToMany
+    @OneToMany(cascade = {CascadeType.ALL})
     private List<RepositoryDetails> repositoryDetailsList=new ArrayList<>();
 
     @JsonProperty("login")

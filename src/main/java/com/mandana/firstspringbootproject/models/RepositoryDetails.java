@@ -30,7 +30,6 @@ public class RepositoryDetails {
 
     @JsonProperty("owner")
     @ManyToOne
-    @NotFound(action = NotFoundAction.IGNORE)
     @JoinColumn(name = "ownerId")
     private Owner owner;
 

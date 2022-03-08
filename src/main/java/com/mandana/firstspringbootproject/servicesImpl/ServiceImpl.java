@@ -1,9 +1,13 @@
 package com.mandana.firstspringbootproject.servicesImpl;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
+@Setter
+@Getter
 public class ServiceImpl<T, E> {
     JpaRepository<T, E> repository;
 
@@ -11,12 +15,14 @@ public class ServiceImpl<T, E> {
         this.repository = repository;
     }
 
-    protected void save(T t) {
-        repository.save(t);
+    protected T save(T t) {
+      return  repository.save(t);
     }
+
 
     protected List<T> findAll() {
         return repository.findAll();
     }
+
 
 }
