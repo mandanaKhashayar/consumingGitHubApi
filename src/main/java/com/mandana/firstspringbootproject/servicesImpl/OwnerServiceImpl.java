@@ -5,6 +5,8 @@ import com.mandana.firstspringbootproject.repositories.OwnerRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 
 @Service
 public class OwnerServiceImpl extends ServiceImpl<Owner, Long> {
@@ -16,5 +18,13 @@ public class OwnerServiceImpl extends ServiceImpl<Owner, Long> {
     @Transactional
     protected Owner save(Owner owner) {
         return super.save(owner);
+    }
+
+    public List<Owner> getOwners() {
+       return repository.findAll();
+    }
+
+    public Owner findByOwnerId(Long ownerId) {
+      return ((OwnerRepository)repository).findByOwnerId(ownerId);
     }
 }
