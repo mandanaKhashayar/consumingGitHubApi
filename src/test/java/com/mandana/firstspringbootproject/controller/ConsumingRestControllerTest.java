@@ -49,7 +49,7 @@ public class ConsumingRestControllerTest {
 
     // this method test the method named getPublicRepository() to get GitHubrepositoryDetails
     @Test
-    public void testGetPublicRepositories_success() throws Exception {
+    public void test_GetPublicRepositories_success() throws Exception {
         TestData testData =new TestData();
         List<Owner> records=testData.getOwnerTestListForGetPublicRepositories();
         Mockito.when(consumingRestServiceImpl.getOwners()).thenReturn(records);
@@ -66,7 +66,7 @@ public class ConsumingRestControllerTest {
     // this method test the method named getRepositoryByOwner() to get list of GitHubrepositoryDetails
 // of one owner
     @Test
-    public void testGetRepositoryByOwner_success() throws Exception {
+    public void test_GetRepositoryByOwner_success() throws Exception {
         TestData testData =new TestData();
         Owner record=testData.getOwnerTestForRepositoryByOwnerList();
 

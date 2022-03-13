@@ -54,4 +54,11 @@ public class TestData {
         return RECORD_Owner_2;
 
     }
+    public Owner getOwnerTestForAddRepository(){
+
+        RECORD_Owner_2.getGitHubrepositoryDetailsList().add(RECORD_Repository_1);
+        return RECORD_Owner_2;
+
+    }
+
 }
