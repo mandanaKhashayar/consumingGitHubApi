@@ -32,7 +32,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebMvcTest(ConsumingRestController.class)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 public class ConsumingRestControllerTest {
-    private static String url = "https://api.github.com/repositories";
+    //private static String url = "https://api.github.com/repositories";
     @Autowired
     MockMvc mockMvc;
     @Autowired
@@ -83,7 +83,7 @@ public class ConsumingRestControllerTest {
         //HttpResponse represents the result of an HttpRequest call.
 
         HttpClient client = HttpClient.newBuilder().build();
-        HttpRequest request = HttpRequest.newBuilder().uri(URI.create(url)).build();
+        HttpRequest request = HttpRequest.newBuilder().uri(URI.create(ConsumingRestController.url)).build();
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
         assertEquals(200, response.statusCode());
 
