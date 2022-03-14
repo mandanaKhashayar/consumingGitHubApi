@@ -3,7 +3,6 @@ package com.mandana.firstspringbootproject.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mandana.firstspringbootproject.TestData;
 import com.mandana.firstspringbootproject.controllers.ConsumingRestController;
-import com.mandana.firstspringbootproject.models.GitHubRepositoryDetails;
 import com.mandana.firstspringbootproject.models.Owner;
 import com.mandana.firstspringbootproject.servicesImpl.ConsumingRestServiceImpl;
 import org.junit.jupiter.api.Test;
@@ -15,29 +14,25 @@ import org.springframework.http.MediaType;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import static org.hamcrest.Matchers.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.net.http.HttpResponse.BodyHandlers;
-import java.util.concurrent.CompletableFuture;
+import java.util.List;
+
+import static org.hamcrest.Matchers.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
 @WebMvcTest(ConsumingRestController.class)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 
 public class ConsumingRestControllerTest {
-    private static String url="https://api.github.com/repositories";
+    private static String url = "https://api.github.com/repositories";
     @Autowired
     MockMvc mockMvc;
     @Autowired
@@ -50,8 +45,8 @@ public class ConsumingRestControllerTest {
     // this method test the method named getPublicRepository() to get GitHubrepositoryDetails
     @Test
     public void test_GetPublicRepositories_success() throws Exception {
-        TestData testData =new TestData();
-        List<Owner> records=testData.getOwnerTestListForGetPublicRepositories();
+        TestData testData = new TestData();
+        List<Owner> records = testData.getOwnerTestListForGetPublicRepositories();
         Mockito.when(consumingRestServiceImpl.getOwners()).thenReturn(records);
 
         mockMvc.perform(MockMvcRequestBuilders
@@ -67,8 +62,8 @@ public class ConsumingRestControllerTest {
 // of one owner
     @Test
     public void test_GetRepositoryByOwner_success() throws Exception {
-        TestData testData =new TestData();
-        Owner record=testData.getOwnerTestForRepositoryByOwnerList();
+        TestData testData = new TestData();
+        Owner record = testData.getOwnerTestForRepositoryByOwnerList();
 
         Mockito.when(consumingRestServiceImpl.getRepositoryByOwner(record.getOwnerId())).thenReturn(record.getGitHubrepositoryDetailsList());
 
@@ -89,10 +84,11 @@ public class ConsumingRestControllerTest {
 
         HttpClient client = HttpClient.newBuilder().build();
         HttpRequest request = HttpRequest.newBuilder().uri(URI.create(url)).build();
-        HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
         assertEquals(200, response.statusCode());
 
     }
+
 
 
 }
