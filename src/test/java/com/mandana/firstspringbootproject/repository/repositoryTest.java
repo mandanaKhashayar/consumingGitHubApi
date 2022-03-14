@@ -1,4 +1,4 @@
-package com.mandana.firstspringbootproject;
+package com.mandana.firstspringbootproject.repository;
 
 import com.mandana.firstspringbootproject.TestData;
 import com.mandana.firstspringbootproject.models.GitHubRepositoryDetails;
