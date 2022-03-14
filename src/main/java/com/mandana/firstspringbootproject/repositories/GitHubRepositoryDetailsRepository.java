@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface GitHubRepositoryDetailsRepository extends JpaRepository<GitHubRepositoryDetails, Long> {
+public interface GitHubRepositoryDetailsRepository  {
 
     List<GitHubRepositoryDetails> findByOwner_ownerId(Long ownerId);
 }
