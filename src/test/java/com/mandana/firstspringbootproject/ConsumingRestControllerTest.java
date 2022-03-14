@@ -1,4 +1,4 @@
-package com.mandana.firstspringbootproject.controller;
+package com.mandana.firstspringbootproject;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mandana.firstspringbootproject.TestData;
@@ -76,7 +76,7 @@ public class ConsumingRestControllerTest {
     }
 
     @Test
-    void ensureThatGitHubAPICallReturnStatusCode200() throws Exception {
+    public void ensureThatGitHubAPICallReturnStatusCode200() throws Exception {
 
         //HttpRequest represents the request to be sent via the HttpClient.
         //HttpClient behaves as a container for configuration information common to multiple requests.
