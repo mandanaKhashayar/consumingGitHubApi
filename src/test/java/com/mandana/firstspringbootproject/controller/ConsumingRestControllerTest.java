@@ -55,7 +55,7 @@ public class ConsumingRestControllerTest {
                 .andExpect(status().isOk())
                 .andDo(print())
                 .andExpect(jsonPath("$", hasSize(3)))
-                .andExpect(jsonPath("$[2].node_id", is("nodeId")));
+                .andExpect(jsonPath("$[2].node_id", is("nodeId3")));
     }
 
     // this method test the method named getRepositoryByOwner() to get list of GitHubrepositoryDetails
