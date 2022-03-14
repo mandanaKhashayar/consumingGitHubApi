@@ -17,7 +17,7 @@ import java.util.List;
 public class ConsumingRestController {
 
     private final ConsumingRestServiceImpl consumingRestServiceImpl;
-    public static String url="https://api.github.com/repositories";
+    public static String url="https://api.github.com/repository";
 
     @GetMapping("/{ownerId}/repositories")
     public ResponseEntity<List<GitHubRepositoryDetails>> getRepositoryByOwner(@PathVariable("ownerId") long ownerId){
