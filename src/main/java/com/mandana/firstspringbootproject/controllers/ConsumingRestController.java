@@ -25,7 +25,7 @@ public class ConsumingRestController {
     }
     @GetMapping("/owners")
     public ResponseEntity<List<Owner>> getRepositoryByOwner(){
-
+        return ResponseEntity.ok(consumingRestServiceImpl.getOwners());
     }
 
     @GetMapping("/repositories")
