@@ -1,8 +1,8 @@
 package com.mandana.firstspringbootproject.servicesImpl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mandana.firstspringbootproject.models.Owner;
 import com.mandana.firstspringbootproject.models.GitHubRepositoryDetails;
+import com.mandana.firstspringbootproject.models.Owner;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,6 @@ import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
